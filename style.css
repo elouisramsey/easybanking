@@ -338,8 +338,6 @@ footer .ft-btn p {
 (device-width: 768px),
 (device-width: 1024px) {
     body {
-        width: 375px;
-        overflow-x: hidden;
         background: hsl(0, 0%, 95%);
     }
 
@@ -355,7 +353,6 @@ footer .ft-btn p {
         display: block;
         position: absolute;
         height: 34vh;
-        right: -2em;
         top: 8vh;
         background: var(--offWhite);
         margin: 44px;
