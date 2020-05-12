@@ -355,10 +355,11 @@ footer .ft-btn p {
         display: block;
         position: absolute;
         height: 34vh;
+        right: -2em;
         top: 8vh;
         background: var(--offWhite);
-        margin: 44px auto;
-        width: 57%;
+        margin: 44px;
+        width: 77%;
         z-index: 10;
         transform: translateX(120%);
         transition: transform 0.5s ease;
