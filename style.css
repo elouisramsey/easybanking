@@ -19,15 +19,13 @@
 
 /* globals */
 body {
-    /* padding-top: 20px; */
     color: var(--mainBlack);
     background: var(--mainWhite);
     font-family: "Public Sans", sans-serif;
     line-height: 1.4;
-    margin: 0 auto;
-    max-width: 1440px;
     overflow-x: hidden;
     height: 100vh;
+    width: 100%;
 }
 
 h1 {
@@ -108,17 +106,26 @@ nav {
 }
 
 .nav-links {
-    width: 40%;
-    margin: 0 auto;
+    display: none;
 }
 
-.nav-links ul {
+.nav-links-desktop {
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+}
+
+.nav-links ul, .nav-links-desktop ul {
     display: flex;
     justify-content: space-between;
 }
 
 
 nav .burger {
+    display: none;
+}
+
+nav .burger img {
     display: none;
 }
 
@@ -161,25 +168,23 @@ nav .burger-active {
 }
 
 .s1 .s1-s2 {
-    grid-column-start: 1;
-    width: 40%;
-    margin: 10em 7em;
-    height: 360px;
+    width: 55%;
+    padding: 0 7em;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 .s1 .s1-s2 h1 {
     font-size: 4.2rem;
     line-height: 5rem;
+    padding: 2em 0 0.6em 0;
 }
 
 .s1 .s1-s2 p {
     font-size: 1.3rem;
     line-height: 1.9rem;
     width: 86%;
-    padding: 20px 0;
+    padding: 0 0 1em;
 }
 
 .s1 .s1-s2 button {
@@ -331,7 +336,6 @@ footer .ft-btn p {
 }
 
 /* =========== MEDIA QUERIES =========== */
-
 @media (max-width: 415px),
 (max-width: 1024px),
 (device-width: 375px),
@@ -349,17 +353,23 @@ footer .ft-btn p {
         overflow: hidden;
     }
 
-    .nav-links {
+    .nav-links-desktop {
+        display: none;
+    }
+
+    nav .burger img {
         display: block;
+    }
+
+    .nav-links {
+        display: none;
         position: absolute;
         height: 34vh;
         top: 8vh;
         background: var(--offWhite);
-        margin: 44px;
-        width: 77%;
+        margin-top: 44px;
+        width: 100%;
         z-index: 10;
-        transform: translateX(120%);
-        transition: transform 0.5s ease;
     }
 
     nav .nav-links ul {
@@ -399,15 +409,44 @@ footer .ft-btn p {
         left: 1em;
     }
 
-    .s1 {
+    .s1 .s1-s1 {
         display: none;
+    }
+
+    .s1 {
+        display: block;
+        height: 450px;
+        text-align: center;
     }
 
     .s1 .s1-s2 {
         width: 100%;
-        overflow-x: hidden;
+        height: 100%;
+        padding: 0;
         background: hsl(0, 0%, 95%);
-        margin: 0;
+        align-items: center;
+    }
+
+    .s1 .s1-s2 h1 {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        width: 89%;
+        padding: 0;
+    }
+
+    .s1 .s1-s2 p {
+        font-size: 1em;
+        line-height: 1.5rem;
+        width: 100%;
+        padding: 1em;
+    }
+
+    .s1 .s1-s2 button {
+        width: 58%;
+        margin-left: 0;
+        margin-top: 4em;
+        padding: 16px 25px;
+        font-size: 0.7em;
     }
 
     .s2 {
@@ -517,16 +556,12 @@ footer .ft-btn p {
     }
 }
 
-.nav-active {
+/* .nav-active {
     transform: translateX(0);
-}
+} */
 
 @media (device-width: 768px),
 (device-width: 1024px) {
-    body {
-        width: 768px;
-    }
-
     .hero {
         background-size: cover;
         height: 60vh;
@@ -541,10 +576,28 @@ footer .ft-btn p {
     }
 
     .nav-links {
-        width: 80%;
         top: 10vh;
     }
 
+    .s1 {
+        height: 850px;
+    }
+
+    .s1 .s1-s2 h1 {
+        font-size: 5.8rem;
+        line-height: 6.5rem;
+    }
+
+    .s1 .s1-s2 p {
+        font-size: 3em;
+        line-height: 3.8rem;
+    }
+
+    .s1 .s1-s2 button {
+        width: 61%;
+        margin-top: 2em;
+        font-size: 2.5em;
+    }
 
     .s2 .why-us {
         width: 80%;
@@ -630,14 +683,9 @@ footer .ft-btn p {
 }
 
 @media (device-width: 1024px) {
-    body {
-        width: 1024px;
-    }
-
     .nav-links {
         height: 41vh;
         top: 15vh;
-        width: 80%;
     }
 
     nav .nav-links ul {
